@@ -4,6 +4,7 @@ from typing import Optional, Dict, Any, List
 
 from ..models import ChatSession, ChatMessage
 from .crisis_detector import CrisisDetector
+from .greeting_detector import GreetingDetector
 from .vector_search import search_similar_chunks
 from .ai_providers import get_llm_service, BaseLLMService
 
@@ -15,6 +16,7 @@ class RAGOrchestrator:
     Orquestador principal del ciclo conversacional y motor RAG de Alexia.
     Ejecuta el flujo secuencial:
     1. Regla de Prioridad Cero: Detección de crisis (autolesión, suicidio, violencia física).
+    1.5. Detección de Saludos y Cortesía: Respuesta empática inmediata sin retrieval fallido.
     2. Recuperación Vectorial (Retrieval): Búsqueda de fragmentos documentales activos.
     3. Generación Aumentada (Augmented Generation): LLM con prompt afirmativo y citas.
     4. Persistencia y Auditoría: Registro de sesión, métricas de Alexia y citas.
@@ -72,6 +74,37 @@ class RAGOrchestrator:
                 session.save(update_fields=['updated_at'])
 
             return crisis_result
+
+        # ====================================================================
+        # PASO 1.5: SALUDOS DE CORTESÍA Y BIENVENIDA (SMALL-TALK)
+        # ====================================================================
+        greeting_result = GreetingDetector.evaluate(query_text)
+        if greeting_result:
+            total_latency = int((time.time() - start_time) * 1000)
+            greeting_result['latency_ms'] = total_latency
+
+            if session:
+                ChatMessage.objects.create(
+                    session=session,
+                    role='USER',
+                    content=query_text
+                )
+                ChatMessage.objects.create(
+                    session=session,
+                    role='ASSISTANT',
+                    content=greeting_result['content'],
+                    citations=[],
+                    is_crisis_detected=False,
+                    metadata={
+                        'suggested_expression': greeting_result['suggested_expression'],
+                        'tts_clean_text': greeting_result['tts_clean_text'],
+                        'latency_ms': total_latency,
+                        'is_greeting': True
+                    }
+                )
+                session.save(update_fields=['updated_at'])
+
+            return greeting_result
 
         # ====================================================================
         # PASO 2: RECUPERACIÓN VECTORIAL (RETRIEVAL)

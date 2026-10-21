@@ -236,6 +236,33 @@ class RAGAssistantTests(TestCase):
         self.assertIn('tts_clean_text', res.data)
         self.assertNotIn('*', res.data['tts_clean_text'])  # TTS limpio sin markdown
 
+    def test_greeting_detector_returns_warm_welcome_without_failed_retrieval(self):
+        """Un saludo aislado como 'Hola' retorna bienvenida empática inmediata sin error de retrieval."""
+        payload = {"message": "Hola"}
+        res = self.client.post('/api/v1/chat/message/', payload, format='json')
+        self.assertEqual(res.status_code, status.HTTP_200_OK)
+        self.assertFalse(res.data['is_crisis_detected'])
+        self.assertEqual(len(res.data['citations']), 0)
+        self.assertIn("Alexia", res.data['content'])
+        self.assertIn("TransLúcidas", res.data['content'])
+        self.assertEqual(res.data['suggested_expression'], 'EMPATHETIC')
+        self.assertNotIn('*', res.data['tts_clean_text'])
+
+    def test_substantive_query_with_greeting_still_triggers_rag(self):
+        """Un saludo acompañado de una pregunta de fondo (ej. requisitos) va al motor RAG documental."""
+        self.client.credentials(HTTP_AUTHORIZATION=f'Token {self.researcher_token.key}')
+        self.client.post(f'/api/v1/knowledge/documents/{self.doc_legal.id}/index/')
+        self.client.credentials()
+
+        payload = {
+            "message": "Hola Alexia, ¿cuáles son los requisitos ante notaría según el decreto 1227?"
+        }
+        res = self.client.post('/api/v1/chat/message/', payload, format='json')
+        self.assertEqual(res.status_code, status.HTTP_200_OK)
+        self.assertFalse(res.data['is_crisis_detected'])
+        self.assertGreaterEqual(len(res.data['citations']), 1)
+
+
     # ========================================================================
     # 5. PRUEBAS DE DETECCIÓN DE CRISIS (PRIORIDAD CERO - RF-RAG-09)
     # ========================================================================
