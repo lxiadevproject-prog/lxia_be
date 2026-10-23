@@ -1,0 +1,79 @@
+flowchart TD
+    %% Estilos Profesionales
+    classDef userClass fill:#F3F4F6,stroke:#4B5563,stroke-width:2px,color:#111827;
+    classDef m1Class fill:#EFF6FF,stroke:#3B82F6,stroke-width:2px,color:#1E3A8A;
+    classDef m3Class fill:#FDF2F8,stroke:#EC4899,stroke-width:2px,color:#831843;
+    classDef m2Class fill:#FFFBEB,stroke:#F59E0B,stroke-width:2px,color:#78350F;
+    classDef ethicsClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B;
+    classDef dataClass fill:#ECFDF5,stroke:#10B981,stroke-width:2px,color:#065F46;
+
+    subgraph SEC_USER ["1. USUARIAS Y CANALES MÓVILES (Android / iOS / Web)"]
+        direction LR
+        U["👤 Usuaria Comunitaria"]
+        MIC["🎤 Micrófono Web"]
+        UI["📱 Pantalla / Interfaz PWA"]
+        SPK["🔊 Parlante Móvil"]
+        U <--> MIC
+        U <--> UI
+        U <--> SPK
+    end
+    class U,MIC,UI,SPK userClass;
+
+    subgraph SEC_FRONT ["MÓDULO 1: PORTAL WEB DE AUTOCUIDADO & CMS (Vue 3.5 / Netlify)"]
+        direction LR
+        PORTAL["📚 Portal de Autocuidado<br/><i>Guías, Directorio y Recursos</i>"]
+        CMS["⚙️ Panel Administrativo CMS<br/><i>Roles RBAC (Admin/Investigador/CM)</i>"]
+        CHAT_UI["💬 Interfaz Web de Chat<br/><i>Sesión Anónima & Respuestas RAG</i>"]
+    end
+    class PORTAL,CMS,CHAT_UI m1Class;
+
+    subgraph SEC_M3 ["MÓDULO 3: AGENTE MULTIMODAL ALEXIA (Audio Neuronal & WebGL 3D)"]
+        direction LR
+        OIDO["👂 OÍDO: OpenAI Whisper Large-v3 (Groq)<br/><i>Transcripción <0.4s tolerante a jerga trans</i>"]
+        VOZ["🗣️ VOZ: Azure AI Speech Neural<br/><i>Voz uniforme, cálida + 15 Visemas Oculus</i>"]
+        CUERPO["💃 CUERPO: Three.js + TalkingHead (WebGL)<br/><i>Modelo .GLB (<5 MB Draco) + 52 Blendshapes ARKit</i>"]
+    end
+    class OIDO,VOZ,CUERPO m3Class;
+
+    subgraph SEC_M2 ["MÓDULO 2: CEREBRO RAG & BACKEND API (Django REST / Render)"]
+        direction TB
+        CRISIS["🚨 PRIORIDAD CERO: Detector de Crisis Vital<br/><i>Líneas Gratuitas de Auxilio 106, 123 y Línea Púrpura</i>"]
+        GREET["👋 Interceptor de Cortesía / Small-Talk<br/><i>Bienvenida empática sin error de búsqueda</i>"]
+        ORCH["🧠 Orquestador RAG Alexia<br/><i>Control de flujo, prompt afirmativo y citas</i>"]
+        LLM["🤖 Proveedor LLM Agnóstico<br/><i>Claude 3.5 Sonnet / GPT-4o-mini / Gemini</i>"]
+        INGEST["📄 Pipeline de Ingestión & Chunking<br/><i>Fragmentación semántica con solapamiento</i>"]
+    end
+    class CRISIS ethicsClass;
+    class GREET,ORCH,LLM,INGEST m2Class;
+
+    subgraph SEC_DATA ["INFRAESTRUCTURA DE DATOS & CLOUD STORAGE"]
+        direction LR
+        SUPABASE["🗄️ Supabase PostgreSQL 17 + pgvector<br/><i>Leyes, Decretos 1227, Guías & Embeddings 128d</i>"]
+        STORAGE["☁️ Firebase Storage Bucket<br/><i>Documentos Oficiales PDF y Material Descargable</i>"]
+    end
+    class SUPABASE,STORAGE dataClass;
+
+    %% Conexiones de Entrada
+    MIC -->|Audio de Voz| OIDO
+    OIDO -->|Texto Transcrito| ORCH
+    UI -->|Texto / Navegación| CHAT_UI
+    CHAT_UI -->|Consulta API| ORCH
+    CMS -->|Publica Contenido| INGEST
+    INGEST -->|Almacena PDF| STORAGE
+    INGEST -->|Vectores de Búsqueda| SUPABASE
+
+    %% Flujo RAG Interno
+    ORCH -->|1. Evaluar Emergencia| CRISIS
+    CRISIS -.->|Si hay riesgo vital| CHAT_UI
+    ORCH -->|1.5. Evaluar Saludo| GREET
+    GREET -.->|Bienvenida Rápida| CHAT_UI
+    ORCH -->|2. Recuperación Vectorial| SUPABASE
+    SUPABASE -->|Fragmentos y Citas| ORCH
+    ORCH -->|3. Generación Aumentada| LLM
+    LLM -->|Texto Fundamentado + Emoción| ORCH
+
+    %% Salida Multimodal
+    ORCH -->|Texto Limpio + Emoción| VOZ
+    VOZ -->|Audio + 15 Visemas| CUERPO
+    CUERPO -->|Renderizado WebGL en tiempo real| UI
+    VOZ -->|Flujo de Audio Neuronal| SPK
