@@ -25,85 +25,117 @@ La solución se concibe como un **ecosistema multimodal cohesionado de tres mód
 ![Diagrama de Arquitectura Multimodal Integral Plataforma TransLúcidas](arquitectura_transluz.png)
 
 ```mermaid
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'background': '#0A0F1D',
+    'primaryColor': '#111827',
+    'primaryTextColor': '#F9FAFB',
+    'primaryBorderColor': '#38BDF8',
+    'lineColor': '#818CF8',
+    'secondaryColor': '#0F172A',
+    'tertiaryColor': '#1E1B4B',
+    'clusterBkg': '#0F172A',
+    'clusterBorder': '#334155',
+    'defaultLinkColor': '#38BDF8',
+    'fontFamily': 'Inter, system-ui, -apple-system, sans-serif',
+    'fontSize': '13px'
+  }
+}}%%
 flowchart TD
-    %% Estilos Profesionales
-    classDef userClass fill:#F3F4F6,stroke:#4B5563,stroke-width:2px,color:#111827;
-    classDef m1Class fill:#EFF6FF,stroke:#3B82F6,stroke-width:2px,color:#1E3A8A;
-    classDef m3Class fill:#FDF2F8,stroke:#EC4899,stroke-width:2px,color:#831843;
-    classDef m2Class fill:#FFFBEB,stroke:#F59E0B,stroke-width:2px,color:#78350F;
-    classDef ethicsClass fill:#FEF2F2,stroke:#EF4444,stroke-width:2px,color:#991B1B;
-    classDef dataClass fill:#ECFDF5,stroke:#10B981,stroke-width:2px,color:#065F46;
+    %% Estilos Modernos Dark Cyber Pro (Vibrant Neon Glow)
+    classDef clientCard fill:#0C2340,stroke:#00F0FF,stroke-width:2.5px,color:#FFFFFF,rx:10px;
+    classDef m1Card fill:#1E1B4B,stroke:#8B5CF6,stroke-width:2.5px,color:#FFFFFF,rx:10px;
+    classDef m3Card fill:#380424,stroke:#F43F5E,stroke-width:2.5px,color:#FFFFFF,rx:10px;
+    classDef m2Card fill:#063528,stroke:#10B981,stroke-width:2.5px,color:#FFFFFF,rx:10px;
+    classDef orchCard fill:#022C22,stroke:#34D399,stroke-width:2.5px,color:#A7F3D0,rx:10px;
+    classDef crisisCard fill:#450A0A,stroke:#EF4444,stroke-width:2.5px,color:#FECACA,rx:10px;
+    classDef dataCard fill:#082F49,stroke:#38BDF8,stroke-width:2.5px,color:#E0F2FE,rx:10px;
 
-    subgraph SEC_USER ["1. USUARIAS Y CANALES MÓVILES (Android / iOS / Web)"]
+    %% 1. USUARIAS Y CANALES MÓVILES (TOP)
+    subgraph L1 ["📱 1. USUARIAS Y CANALES MÓVILES (Android / iOS / PWA)"]
         direction LR
         U["👤 Usuaria Comunitaria"]
-        MIC["🎤 Micrófono Web"]
-        UI["📱 Pantalla / Interfaz PWA"]
-        SPK["🔊 Parlante Móvil"]
+        MIC["🎤 Micrófono Web (Voz)"]
+        UI["✨ Pantalla PWA / WebGL"]
+        SPK["🔊 Parlante / Audífonos"]
         U <--> MIC
         U <--> UI
         U <--> SPK
     end
-    class U,MIC,UI,SPK userClass;
+    class U,MIC,UI,SPK clientCard;
 
-    subgraph SEC_FRONT ["MÓDULO 1: PORTAL WEB DE AUTOCUIDADO & CMS (Vue 3.5 / Netlify)"]
-        direction LR
-        PORTAL["📚 Portal de Autocuidado<br/><i>Guías, Directorio y Recursos</i>"]
-        CMS["⚙️ Panel Administrativo CMS<br/><i>Roles RBAC (Admin/Investigador/CM)</i>"]
-        CHAT_UI["💬 Interfaz Web de Chat<br/><i>Sesión Anónima & Respuestas RAG</i>"]
-    end
-    class PORTAL,CMS,CHAT_UI m1Class;
-
-    subgraph SEC_M3 ["MÓDULO 3: AGENTE MULTIMODAL ALEXIA (Audio Neuronal & WebGL 3D)"]
-        direction LR
-        OIDO["👂 OÍDO: OpenAI Whisper Large-v3 (Groq)<br/><i>Transcripción <0.4s tolerante a jerga trans</i>"]
-        VOZ["🗣️ VOZ: Azure AI Speech Neural<br/><i>Voz uniforme, cálida + 15 Visemas Oculus</i>"]
-        CUERPO["💃 CUERPO: Three.js + TalkingHead (WebGL)<br/><i>Modelo .GLB (<5 MB Draco) + 52 Blendshapes ARKit</i>"]
-    end
-    class OIDO,VOZ,CUERPO m3Class;
-
-    subgraph SEC_M2 ["MÓDULO 2: CEREBRO RAG & BACKEND API (Django REST / Render)"]
+    %% 2. PRESENTACIÓN WEB Y AGENTE VIRTUAL 3D
+    subgraph L2 ["🌐 2. PRESENTACIÓN WEB & AGENTE 3D EN TIEMPO REAL (Netlify & WebGL)"]
         direction TB
-        CRISIS["🚨 PRIORIDAD CERO: Detector de Crisis Vital<br/><i>Líneas Gratuitas de Auxilio 106, 123 y Línea Púrpura</i>"]
-        GREET["👋 Interceptor de Cortesía / Small-Talk<br/><i>Bienvenida empática sin error de búsqueda</i>"]
-        ORCH["🧠 Orquestador RAG Alexia<br/><i>Control de flujo, prompt afirmativo y citas</i>"]
-        LLM["🤖 Proveedor LLM Agnóstico<br/><i>Claude 3.5 Sonnet / GPT-4o-mini / Gemini</i>"]
-        INGEST["📄 Pipeline de Ingestión & Chunking<br/><i>Fragmentación semántica con solapamiento</i>"]
+        subgraph M1_BOX ["⚡ Módulo 1: Portal Web de Autocuidado & CMS (Vue 3.5)"]
+            direction LR
+            PORTAL["📚 Portal de Autocuidado<br/><i>Guías, Directorio y Recursos</i>"]
+            CMS["⚙️ CMS Administrativo<br/><i>Gestión de Contenidos RBAC</i>"]
+            CHAT_UI["💬 Interfaz Web de Chat PWA<br/><i>Sesión Segura y Anonimizada</i>"]
+        end
+        subgraph M3_BOX ["🔮 Módulo 3: Avatar Alexia 3D (WebGL / Three.js)"]
+            direction LR
+            HEAD["💃 TalkingHead Lip-Sync Engine<br/><i>15 Visemas Oculus + 52 Blendshapes ARKit</i>"]
+            CANVAS["🎭 Canvas WebGL 3D (Three.js)<br/><i>Modelo .GLB optimizado <5MB a 60 fps</i>"]
+        end
     end
-    class CRISIS ethicsClass;
-    class GREET,ORCH,LLM,INGEST m2Class;
+    class PORTAL,CMS,CHAT_UI m1Card;
+    class HEAD,CANVAS m3Card;
 
-    subgraph SEC_DATA ["INFRAESTRUCTURA DE DATOS & CLOUD STORAGE"]
+    %% 3. CEREBRO BACKEND FASTAPI & IA NEURONAL
+    subgraph L3 ["🧠 3. CEREBRO BACKEND FASTAPI & SERVICIOS NEURONALES (Render Cloud)"]
+        direction TB
+        ORCH["⚡ Orquestador Conversacional Alexia<br/><i>Gestión de Sesión, Prompt Afirmativo & RAG</i>"]
+
+        subgraph ETHICS_ROW ["🛡️ Mecanismo Ético Prioridad Cero"]
+            direction LR
+            SAFETY["🚨 Detector Heurístico de Crisis<br/><i>Reglas Vitales de Alerta Inmediata</i>"]
+            LINE106["🆘 Protocolo de Emergencia<br/><i>Canalización prioritaria Línea 106</i>"]
+        end
+
+        subgraph AI_ROW ["🤖 Servicios de Inteligencia Neuronal"]
+            direction LR
+            WHISPER["👂 Whisper Large-v3 (Groq)<br/><i>ASR <400ms tolerante a jergas</i>"]
+            AZURE["🗣️ Azure AI Speech Neural<br/><i>Voz uniforme + 15 Visemas Oculus</i>"]
+            LLM["✨ OpenAI GPT-4o-mini<br/><i>Respuesta empática + Emoción</i>"]
+        end
+    end
+    class ORCH orchCard;
+    class WHISPER,AZURE,LLM m2Card;
+    class SAFETY,LINE106 crisisCard;
+
+    %% 4. CAPA DE DATOS Y STORAGE (BOTTOM)
+    subgraph L4 ["💾 4. INFRAESTRUCTURA DE DATOS & CLOUD STORAGE (Supabase Cloud)"]
         direction LR
-        SUPABASE["🗄️ Supabase PostgreSQL 17 + pgvector<br/><i>Leyes, Decretos 1227, Guías & Embeddings 128d</i>"]
-        STORAGE["☁️ Firebase Storage Bucket<br/><i>Documentos Oficiales PDF y Material Descargable</i>"]
+        PGVECTOR[("🗄️ PostgreSQL 17 + pgvector<br/><i>Embeddings Vectoriales & Guías</i>")]
+        STORAGE["📦 Supabase Storage Bucket<br/><i>Modelo 3D GLB, Texturas & Guías PDF</i>"]
+        AUDIT[("🔒 Auditoría Anonimizada<br/><i>Métricas de uso éticas sin datos personales</i>")]
     end
-    class SUPABASE,STORAGE dataClass;
+    class PGVECTOR,STORAGE,AUDIT dataCard;
 
-    %% Conexiones de Entrada
-    MIC -->|Audio de Voz| OIDO
-    OIDO -->|Texto Transcrito| ORCH
-    UI -->|Texto / Navegación| CHAT_UI
-    CHAT_UI -->|Consulta API| ORCH
-    CMS -->|Publica Contenido| INGEST
-    INGEST -->|Almacena PDF| STORAGE
-    INGEST -->|Vectores de Búsqueda| SUPABASE
+    %% CONEXIONES DE CAPA A CAPA (Columna Vertebral Perfecta)
+    MIC ==>|Audio de Voz WebM| CHAT_UI
+    UI ==>|Consultas de Texto| CHAT_UI
+    PORTAL -.->|Consulta Recursos| CMS
+    CHAT_UI ==>|Sincronización Audio & Visemas| HEAD
+    HEAD ==>|Renderizado Facial en Vivo| CANVAS
 
-    %% Flujo RAG Interno
-    ORCH -->|1. Evaluar Emergencia| CRISIS
-    CRISIS -.->|Si hay riesgo vital| CHAT_UI
-    ORCH -->|1.5. Evaluar Saludo| GREET
-    GREET -.->|Bienvenida Rápida| CHAT_UI
-    ORCH -->|2. Recuperación Vectorial| SUPABASE
-    SUPABASE -->|Fragmentos y Citas| ORCH
+    %% Capa 2 a Capa 3
+    CHAT_UI ==>|Petición API HTTPS /chat| ORCH
+    CMS ==>|Publicación de Nuevos Contenidos| ORCH
+
+    %% Enrutamiento Interno en Backend
+    ORCH -->|1. Evaluación de Seguridad Vital| SAFETY
+    SAFETY -->|Crisis Detectada| LINE106
+    ORCH -->|2. Transcripción ASR| WHISPER
     ORCH -->|3. Generación Aumentada| LLM
-    LLM -->|Texto Fundamentado + Emoción| ORCH
+    ORCH -->|4. Síntesis Neuronal & Visemas| AZURE
 
-    %% Salida Multimodal
-    ORCH -->|Texto Limpio + Emoción| VOZ
-    VOZ -->|Audio + 15 Visemas| CUERPO
-    CUERPO -->|Renderizado WebGL en tiempo real| UI
-    VOZ -->|Flujo de Audio Neuronal| SPK
+    %% Capa 3 a Capa 4
+    ORCH ==>|Búsqueda Semántica & Almacenamiento| PGVECTOR
+    ORCH ==>|Gestión de Archivos & Assets 3D| STORAGE
+    ORCH ==>|Registro Ético Anonimizado| AUDIT
 ```
 
 
