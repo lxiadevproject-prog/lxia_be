@@ -30,7 +30,7 @@ A continuación se presenta el flujo integral del sistema, desde la interacción
 
 ### Principios Arquitecturales y Éticos de la Solución
 
-1. **Desacoplamiento Estricto:** La interfaz web (Vue 3.5) opera de manera independiente del cerebro de servicios backend (FastAPI en Python), lo que permite que cada componente evolucione, reciba mantenimiento o escale sin riesgo de afectar a los demás.
+1. **Desacoplamiento Estricto:** La interfaz web (Vue 3.5) opera de manera independiente del cerebro de servicios backend (Django REST Framework en Python), lo que permite que cada componente evolucione, reciba mantenimiento o escale sin riesgo de afectar a los demás.
 2. **Sustituibilidad de Modelos de IA:** La arquitectura es tecnológicamente agnóstica; el orquestador conversacional está preparado para conectarse indistintamente con diferentes proveedores de modelos de lenguaje (OpenAI GPT-4o-mini, Anthropic Claude 3.5 Sonnet o Google Gemini) sin requerir reescrituras de código.
 3. **Privacidad Absoluta y No Revictimización:** Las sesiones de consulta comunitaria son estrictamente anónimas y efímeras. No se capturan direcciones IP, nombres, números telefónicos ni datos biométricos en las bases de datos de consultas.
 4. **Eficiencia y Bajo Consumo en Redes Móviles:** El personaje 3D se comprime a menos de 5 MB en formato optimizado GLB con compresión Draco para cargarse una sola vez en la memoria del teléfono; el sitio web carga en menos de 1.5 segundos incluso en conexiones móviles 3G o 4G intermitentes.
@@ -43,7 +43,7 @@ Cada herramienta ha sido seleccionada cuidadosamente para equilibrar máxima cal
 
 | Componente | Tecnologías Seleccionadas | Justificación Técnica y Beneficio para el Proyecto |
 | :--- | :--- | :--- |
-| **Backend Core & API** | Python 3.12+, FastAPI, Uvicorn, Contenedor Docker en Render | Arquitectura asíncrona de alto rendimiento que permite procesar audio, texto y visemas de sincronización facial en milisegundos. Documentación OpenAPI interactiva incluida. |
+| **Backend Core & API** | Python 3.12+, Django 6+, Django REST Framework, Gunicorn, WhiteNoise, Docker en Render | Robustez empresarial, ORM maduro con protección nativa contra inyecciones SQL, soporte nativo para autenticación granular de roles RBAC y documentación interactiva OpenAPI 3 / Swagger. |
 | **Base de Datos & Búsqueda Vectorial** | PostgreSQL 17 + Extensión `pgvector` (Supabase Cloud) | Almacena en una misma base segura los contenidos del CMS, los permisos de usuario y los vectores matemáticos de los documentos para búsqueda semántica, eliminando sobrecostos de bases de datos vectoriales externas. |
 | **Frontend Web & Panel CMS** | Vue 3.5, Vite, TypeScript, Pinia, Vanilla CSS | Carga ultraligera (~100 kB comprimido), diseño accesible según pautas internacionales, adaptable a cualquier pantalla móvil o de escritorio, y panel intuitivo para subir y editar guías. |
 | **Agente 3D (Alexia)** | WebGL, `Three.js`, motor `TalkingHead` | Renderizado 3D directamente en el procesador gráfico del celular de la usuaria. **Elimina la necesidad de costosos servidores de streaming de video por GPU** (lo que significaría un gasto mensual superior a $400 USD). |
@@ -101,7 +101,7 @@ Los servicios de infraestructura de terceros son contratados y titularizados dir
 | :--- | :--- | :--- | :---: | :---: |
 | **Netlify** | Hospedaje y distribución global del Portal y Avatar 3D | Hasta 100 GB de transferencia mensual (Capa Gratuita) | $0 COP | $0 COP |
 | **Supabase Cloud** | Base de datos PostgreSQL + `pgvector` + Archivos | 500 MB de base de datos + 1 GB de almacenamiento (Capa Gratuita) | $0 COP | $0 COP |
-| **Render Cloud** | Servidor Web API FastAPI en contenedor Docker | Servidor estándar 512 MB - 1 GB RAM | $0 – $28.000 COP ($0 - $7 USD) | $0 – $336.000 COP |
+| **Render Cloud** | Servidor Web API Django REST en contenedor Docker | Servidor estándar 512 MB - 1 GB RAM | $0 – $28.000 COP ($0 - $7 USD) | $0 – $336.000 COP |
 | **Azure AI Speech** | Voz Neuronal TTS + 15 Visemas de sincronización | **Capa F0 permanente gratuita:** 500.000 caracteres/mes (~1.250 a 1.500 respuestas de voz al mes sin costo) | $0 COP *(Tier F0)* | $0 COP |
 | **Groq (Whisper) & OpenAI** | Transcripción de voz y motor de lenguaje GPT-4o-mini | ~2.000 a 3.000 consultas mensuales | $20.000 – $50.000 COP (~$5 - $12 USD) | $240.000 – $600.000 COP |
 | **TOTAL RECURRENTE ESTIMADO** | **Operación integral en fase de pilotaje** | **Infraestructura lista para producción** | **~$20.000 – $78.000 COP/mes** | **~$240.000 – $936.000 COP/año** |
