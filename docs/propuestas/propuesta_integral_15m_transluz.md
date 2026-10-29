@@ -1,18 +1,18 @@
-# 📑 Propuesta Técnica y Económica Integral: Plataforma TransLúcidas
+# 📑 Propuesta Técnica y Económica: Plataforma TransLúcidas
 ### Portal de Autocuidado, Asistente Conversacional RAG y Agente Virtual Encarnado (Alexia 3D)
 
 * **Destinatario:** Equipo de Investigación y Coordinación del Proyecto TransLúcidas
 * **Fecha de Emisión:** Octubre de 2026
 * **Vigencia de la Oferta:** 30 días calendario
-* **Inversión Total del Proyecto Completo (Módulos 1, 2 y 3):** **$15.000.000 COP** (~$3.750 USD)
+* **Inversión Total (Módulos 1, 2 y 3):** **$15.000.000 COP** (~$3.750 USD)
 
 ---
 
 ## 1. Descripción de la Solución y Enfoque Arquitectural
 
-La solución para la Plataforma TransLúcidas se concibe como un ecosistema tecnológico integral, culturalmente sensible y optimizado para dispositivos móviles, diseñado para garantizar el acceso confiable a información de autocuidado, orientación en derechos y apoyo comunitario.
+La solución para la Plataforma TransLúcidas se concibe como un ecosistema tecnológico culturalmente sensible y optimizado para dispositivos móviles, diseñado para garantizar el acceso confiable a información de autocuidado, orientación en derechos y apoyo comunitario.
 
-La plataforma integra en un solo desarrollo sinérgico tres módulos complementarios:
+La plataforma reúne tres módulos complementarios en un mismo desarrollo:
 
 1. **Módulo 1 — Portal de Autocuidado & Panel CMS:** Espacio web accesible de bajo consumo de datos que reúne guías de salud, directorio de servicios y marco legal, gestionado dinámicamente mediante un panel administrativo con roles de usuario (administración, investigación y creación de contenidos).
 2. **Módulo 2 — Asistente Conversacional RAG & Mecanismo Prioridad Cero:** Inteligencia artificial generativa fundamentada estrictamente en documentos y leyes oficiales cargadas en el sistema (con citación de fuente y página), dotada de un interceptor ético de emergencia que detecta situaciones de riesgo vital o crisis emocional y activa de inmediato la derivación a líneas oficiales de ayuda (Línea 106, Línea 123 y Línea Púrpura).
@@ -22,9 +22,9 @@ La plataforma integra en un solo desarrollo sinérgico tres módulos complementa
 
 ### Diagrama de Arquitectura de la Plataforma
 
-A continuación se presenta el flujo integral del sistema, desde la interacción de la usuaria en su dispositivo móvil, pasando por la capa de experiencia web y el cerebro de inteligencia artificial, hasta la infraestructura de datos segura:
+A continuación se presenta el flujo general del sistema, desde la interacción de la usuaria en su dispositivo móvil, pasando por la capa de experiencia web y el cerebro de inteligencia artificial, hasta la infraestructura de datos segura:
 
-![Diagrama de Arquitectura Multimodal Integral Plataforma TransLúcidas](arquitectura_transluz.png)
+![Diagrama de Arquitectura de la Plataforma TransLúcidas](arquitectura_transluz.png)
 
 ---
 
@@ -54,7 +54,7 @@ Cada herramienta ha sido seleccionada cuidadosamente para equilibrar máxima cal
 
 ---
 
-## 3. Matriz de Cotización Integral: Proyecto Completo ($15.000.000 COP)
+## 3. Matriz de Cotización: Módulos 1, 2 y 3 ($15.000.000 COP)
 
 El plan de trabajo comprende **190 horas de ingeniería de software senior** distribuidas a lo largo de **9 a 10 semanas de ejecución**, cubriendo el desarrollo, pruebas, co-diseño y puesta en producción de los tres módulos:
 
@@ -64,8 +64,8 @@ El plan de trabajo comprende **190 horas de ingeniería de software senior** dis
 | **Fase 2: Módulo 1 — Portal de Autocuidado & Panel CMS** | Portal web público optimizado para móviles y panel administrativo de contenidos. | • Portal web público responsivo y de bajo consumo de datos móviles.<br>• Catálogo temático de guías de autocuidado y directorio de apoyo.<br>• Panel administrativo CMS con autenticación y roles de usuario (RBAC).<br>• Contador de lecturas y descargas de recursos. | 44 h | 2.5 sem | **$3.500.000** | $875 |
 | **Fase 3: Módulo 2 — Asistente RAG & Prioridad Cero** | Motor conversacional fundamentado en fuentes oficiales y detector de emergencias vitales. | • Pipeline de procesamiento, fragmentación y búsqueda vectorial en `pgvector`.<br>• **Mecanismo Ético Prioridad Cero** (alerta vital y derivación Línea 106 / 123).<br>• Generador RAG fundamentado con citas de fuente bibliográfica.<br>• Interfaz web de chat con sesiones efímeras seguras. | 48 h | 2.5 sem | **$4.000.000** | $1.000 |
 | **Fase 4: Módulo 3 — Alexia 3D, Voz Neuronal & Co-Diseño** | Interfaz 3D multimodal interactiva, síntesis de voz, reconocimiento adaptado y talleres participativos. | • Avatar 3D optimizado (<5 MB GLB) con 52 expresiones faciales ARKit.<br>• Voz neuronal cálida de Azure con 15 visemas para sincronización labial.<br>• Entrada de voz Whisper con tolerancia a jerga y modismos locales.<br>• **3 sesiones de co-diseño con el equipo e investigadoras comunitarias**. | 50 h | 2.5 sem | **$4.200.000** | $1.050 |
-| **Fase 5: Integración Multimodal, Pruebas E2E & Despliegue** | Pruebas integrales de extremo a extremo, configuración de dominios finales y soporte inicial. | • Pruebas automatizadas de rendimiento, sincronización y seguridad.<br>• Despliegue en producción con dominio institucional y certificados SSL.<br>• Manuales de administración, entrega de código fuente y credenciales.<br>• Período de garantía técnica de 90 días calendario. | 30 h | 1.5 sem | **$1.800.000** | $450 |
-| **TOTAL PROYECTO INTEGRAL** | **Módulos 1, 2 y 3 Desarrollados e Integrados** | **Plataforma Integral TransLúcidas lista para operación pública** | **190 h** | **9-10 sem** | **$15.000.000 COP** | **$3.750 USD** |
+| **Fase 5: Pruebas E2E, Despliegue & Producción** | Pruebas funcionales de extremo a extremo, configuración de dominios finales y soporte inicial. | • Pruebas automatizadas de rendimiento, sincronización y seguridad.<br>• Despliegue en producción con dominio institucional y certificados SSL.<br>• Manuales de administración, entrega de código fuente y credenciales.<br>• Período de garantía técnica de 90 días calendario. | 30 h | 1.5 sem | **$1.800.000** | $450 |
+| **TOTAL DEL PROYECTO** | **Módulos 1, 2 y 3 Desarrollados** | **Plataforma TransLúcidas lista para operación pública** | **190 h** | **9-10 sem** | **$15.000.000 COP** | **$3.750 USD** |
 
 ---
 
@@ -104,7 +104,7 @@ Los servicios de infraestructura de terceros son contratados y titularizados dir
 | **Render Cloud** | Servidor Web API Django REST en contenedor Docker | Servidor estándar 512 MB - 1 GB RAM | $0 – $28.000 COP ($0 - $7 USD) | $0 – $336.000 COP |
 | **Azure AI Speech** | Voz Neuronal TTS + 15 Visemas de sincronización | **Capa F0 permanente gratuita:** 500.000 caracteres/mes (~1.250 a 1.500 respuestas de voz al mes sin costo) | $0 COP *(Tier F0)* | $0 COP |
 | **Groq (Whisper) & OpenAI** | Transcripción de voz y motor de lenguaje GPT-4o-mini | ~2.000 a 3.000 consultas mensuales | $20.000 – $50.000 COP (~$5 - $12 USD) | $240.000 – $600.000 COP |
-| **TOTAL RECURRENTE ESTIMADO** | **Operación integral en fase de pilotaje** | **Infraestructura lista para producción** | **~$20.000 – $78.000 COP/mes** | **~$240.000 – $936.000 COP/año** |
+| **TOTAL RECURRENTE ESTIMADO** | **Costos de infraestructura en fase de pilotaje** | **Infraestructura lista para producción** | **~$20.000 – $78.000 COP/mes** | **~$240.000 – $936.000 COP/año** |
 
 > [!NOTE]
 > En caso de que el volumen de uso de voz supere los 500.000 caracteres mensuales gratuitos incluidos en Azure, el costo adicional es sumamente accesible: **$16 USD por cada millón de caracteres adicionales** (aproximadamente $64.000 COP por cada 2.500 a 3.000 respuestas completas de voz).
@@ -153,8 +153,8 @@ Para asegurar un desarrollo ordenado y transparente, se propone un cronograma de
 | **Hito 1 (Anticipo de Inicio)** | **30%** | **$4.500.000** | Firma del acta de inicio, documento de arquitectura técnica y aprovisionamiento de entornos cloud base. |
 | **Hito 2 (Entrega Módulo 1 & CMS)** | **25%** | **$3.750.000** | Portal web de autocuidado, catálogo temático de recursos y panel CMS funcional probado. |
 | **Hito 3 (Entrega Módulo 2 & RAG)** | **25%** | **$3.750.000** | Asistente conversacional RAG, base vectorial `pgvector` poblada y protocolo de crisis Prioridad Cero activo. |
-| **Hito 4 (Entrega Módulo 3 & Cierre)** | **20%** | **$3.000.000** | Alexia 3D integrada con voz neuronal, sesiones de co-diseño completadas, despliegue final y entrega de código. |
-| **TOTAL** | **100%** | **$15.000.000 COP** | **Plataforma Integral TransLúcidas en Producción** |
+| **Hito 4 (Entrega Módulo 3 & Cierre)** | **20%** | **$3.000.000** | Alexia 3D articulada con voz neuronal, sesiones de co-diseño completadas, despliegue final y entrega de código. |
+| **TOTAL** | **100%** | **$15.000.000 COP** | **Entrega de la Plataforma TransLúcidas en Producción** |
 
 ---
 
