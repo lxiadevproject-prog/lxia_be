@@ -1,26 +1,26 @@
-# 📑 PROPUESTA TÉCNICA Y ECONÓMICA INTEGRAL
-## Plataforma TransLúcidas: Portal de Autocuidado, Asistente Conversacional RAG y Agente Virtual Encarnado 3D (Alexia)
+# 📑 Propuesta Técnica y Económica Integral: Plataforma TransLúcidas
+### Portal de Autocuidado, Asistente Conversacional RAG y Agente Virtual Encarnado (Alexia 3D)
 
----
-
-* **Destinatario:** Fundación TransLúcidas — Equipo de Investigación y Dirección de Proyecto  
-  *(Atención: David Herrera y Comité Técnico)*
-* **Modalidad de Contratación:** Llave en Mano / Solución Integral Unificada (Módulos 1, 2 y 3)
-* **Fecha de Emisión:** 23 de Octubre de 2026
+* **Documento Base de Referencia:** `Documento preliminar de requerimientos de software v0.1` ([docs/requirements/Documento preliminar de requerimientos de software.pdf](file:///C:/Users/Lenovo/PycharmProjects/lxia_be/docs/requirements/Documento%20preliminar%20de%20requerimientos%20de%20software.pdf))
+* **Destinatario:** Equipo de Investigación del Proyecto TransLúcidas
+* **Fecha de Emisión:** Octubre de 2026
 * **Vigencia de la Oferta:** 30 días calendario
-* **Inversión Total Consolidada:** **$15.000.000 COP** *(Referencia: $3.750 USD)*
-* **Estado de Madurez y Prototipo en Vivo:**  
-  • **Frontend Web & Avatar:** [https://lxia-fe.netlify.app](https://lxia-fe.netlify.app)  
-  • **Backend API & Swagger:** [https://lxia-be.onrender.com/api/docs/](https://lxia-be.onrender.com/api/docs/)  
-  • **Base de Datos Vectorial:** PostgreSQL 17 + `pgvector` en Supabase (Documentos oficiales indexados y operativos)
+* **Inversión Total del Proyecto Completo (Módulos 1, 2 y 3):** **$15.000.000 COP** (~$3.750 USD)
 
 ---
 
-## 1. Resumen Ejecutivo y Enfoque de la Solución Integral
+## 1. Descripción de la Solución y Enfoque Arquitectural
 
-La presente propuesta técnica y económica detalla la implementación integral de la **Plataforma TransLúcidas**, dando cumplimiento a los requerimientos funcionales y no funcionales del **Documento Preliminar de Software v0.1** y a las directrices de investigación comunitaria orientadas a la **representación digna, calidez humana, empatía y sensibilidad cultural**.
+En estricto cumplimiento de las **Secciones 1, 4, 5 y 7 del documento preliminar de requerimientos**, la solución se concibe como un sistema modular unificado, culturalmente sensible y de alta eficiencia para dispositivos móviles.
 
-La solución se concibe como un **ecosistema multimodal cohesionado de tres módulos**, diseñado para brindar acompañamiento continuo, pedagógico y afirmativo a personas trans y no binarias en Colombia:
+La plataforma integra en un solo desarrollo sinérgico los tres módulos prioritarios:
+1. **Módulo 1:** Portal Web de Autocuidado, Directorio de Recursos y Panel Administrativo CMS con roles RBAC.
+2. **Módulo 2:** Asistente Conversacional RAG fundamentado con citas bibliográficas y **Mecanismo Ético Prioridad Cero** (detección de crisis y derivación inmediata a la Línea 106).
+3. **Módulo 3:** Agente Virtual Encarnado (Alexia 3D) con voz neuronal cálida y uniforme, reconocimiento de voz adaptado a jergas comunitarias, sincronización labial (*lip-sync*) y proceso de co-diseño identitario.
+
+---
+
+### Diagrama de Arquitectura Multimodal del Sistema
 
 ![Diagrama de Arquitectura Multimodal Integral Plataforma TransLúcidas](arquitectura_transluz.png)
 
@@ -114,7 +114,7 @@ flowchart TD
     end
     class PGVECTOR,STORAGE,AUDIT dataCard;
 
-    %% CONEXIONES DE CAPA A CAPA (Columna Vertebral Perfecta)
+    %% CONEXIONES DE CAPA A CAPA
     MIC ==>|Audio de Voz WebM| CHAT_UI
     UI ==>|Consultas de Texto| CHAT_UI
     PORTAL -.->|Consulta Recursos| CMS
@@ -138,136 +138,129 @@ flowchart TD
     ORCH ==>|Registro Ético Anonimizado| AUDIT
 ```
 
-
-### Ventajas de una Arquitectura Integral Unificada
-1. **Coherencia y Rendimiento en Tiempo Real:** La sincronización entre el texto generado, la emoción asignada y los movimientos labiales del avatar ocurre en milisegundos sin fricciones de protocolo.
-2. **Responsabilidad Centralizada (*Single Point of Responsibility*):** Un único equipo técnico lidera el diseño, la ingeniería de datos, la experiencia visual y el soporte, garantizando un estándar de calidad homogéneo y cumplimiento de plazos.
-3. **Plataforma Pre-construida y Verificable:** La arquitectura de base ya se encuentra desplegada en la nube con pruebas unitarias pasando, base de datos pgvector activa y flujo RAG en funcionamiento.
-
----
-
-## 2. Detalle Tecnológico por Componente
-
-### A. Módulo 3: Agente Virtual Encarnado (Alexia 3D)
-
-#### 1. Voz Neuronal Personalizada y Uniformidad de Marca (TTS)
-* **Proveedor:** **Azure AI Speech Neural** (Voz en español con modulación emocional).
-* **Consistencia entre Dispositivos:** Se garantiza una voz cálida, humana y uniforme en cualquier celular (Android o iOS) o computador, sin depender de los motores de síntesis genéricos o robóticos de cada teléfono.
-* **Sincronización Labial Precisa (Lip-Sync con Visemas):** Azure Speech entrega en una sola llamada el flujo de audio comprimido junto con los eventos de **15 visemas de Oculus** temporizados en milisegundos, permitiendo que la boca del avatar articule cada fonema con total naturalidad sin recargar el procesador del teléfono móvil.
-
-#### 2. Reconocimiento de Voz y Tolerancia a Jergas Locales (ASR)
-* **Proveedor:** **OpenAI Whisper Large-v3** ejecutado sobre infraestructura Groq de alta velocidad.
-* **Sensibilidad Dialectal:** Transcripción instantánea (<500 ms) optimizada para reconocer con alta precisión el lenguaje natural, regionalismos colombianos, entonaciones diversas y vocabulario comunitario propio de la población trans y no binaria.
-
-#### 3. Modelado 3D, Identidad y Proceso de Co-diseño
-* **Motor Gráfico Web:** `Three.js` y la librería especializada `TalkingHead`, ejecutado en el navegador mediante WebGL ligero sin requerir servidores GPU de streaming de video (evitando costos mensuales de más de $400 USD).
-* **Optimización Extrema para Móviles (RNF-02):** Personaje 3D en formato `.GLB` optimizado a menos de 5 MB mediante compresión geométrica Draco y texturas KTX2, almacenado en caché local tras la primera descarga.
-* **Gesticulación y Expresión Emocional:**
-  - Esqueleto compatible con Mixamo para posturas base naturales, movimientos de respiración y parpadeo autónomo.
-  - 52 *Blendshapes* faciales estándar ARKit para transiciones emocionales dinámicas (empática, acogedora, informativa, neutral).
-* **Validación Comunitaria:** Hasta tres (3) sesiones guiadas de revisión con el equipo de investigación y lideresas comunitarias para afinar el diseño del personaje (vestimenta, rasgos identitarios, peinado y gesticulación representativa).
+### Principios de Arquitectura Cumplidos (Sección 5.2):
+1. **Desacoplamiento Estricto:** Backend API modular desacoplado del frontend SPA (Vue 3.5 / Vite), permitiendo mantenimiento independiente y pruebas aisladas.
+2. **Sustituibilidad de Modelos de IA:** Orquestador agnóstico preparado para conmutar entre proveedores (OpenAI GPT-4o-mini, Anthropic Claude 3.5 Sonnet, Google Gemini) sin alterar el frontend ni la lógica de negocio.
+3. **Privacidad Rigurosa y No Revictimización (RNF-06 y Sección 7):** Sesiones anónimas efímeras sin rastreo de IP ni captura de datos personales sensibles.
+4. **Optimización Móvil Extrema (Sección 4.2.3 y RNF-02):** Avatar 3D en formato `.GLB` optimizado a menos de 5 MB con compresión Draco y caché local; síntesis de audio comprimida y bundle web ultraligero (~100 kB gzipped).
 
 ---
 
-### B. Módulo 2: Asistente Conversacional RAG e Inteligencia Ética
+## 2. Tecnologías, Modelos y Proveedores Recomendados
 
-#### 1. Protocolo de Prioridad Cero (Detección de Crisis Vital)
-* **Evaluación Inmediata:** Interceptor previo que analiza cada mensaje buscando activadores de ideación suicida, autolesión o violencia física.
-* **Respuesta de Auxilio:** Despliega de inmediato la tarjeta de emergencia con líneas telefónicas gratuitas verificadas (Línea 106 de salud mental, Línea 123 y Línea Púrpura), priorizando la vida sobre cualquier procesamiento de lenguaje natural.
-
-#### 2. Búsqueda Vectorial Documental (Cero Alucinaciones)
-* **Base de Conocimiento:** PostgreSQL 17 con extensión `pgvector` en Supabase.
-* **Citas Verificables:** Las respuestas se sintetizan a partir de fragmentos documentales activos (Decreto 1227 de 2015 para trámites notariales, guías del Ministerio de Salud, rutas de afirmación hormonal en EPS), incorporando citas con número de página y sección.
-* **Interceptor de Cortesía (*Small-Talk*):** Reconoce de forma natural saludos cotidianos (*"Hola"*, *"Buenos días"*, *"¿Quién eres?"*), entregando una bienvenida empática y orientadora sin activar fallas de búsqueda documental.
-
----
-
-### C. Módulo 1: Portal Web de Información, Autocuidado y CMS
-
-#### 1. Portal Web Público Responsivo (PWA)
-* Desarrollado en **Vue 3.5**, **Vite** y **TypeScript**, optimizado para conexiones móviles lentas (bundle ultra-ligero de ~100 kB gzipped).
-* Catálogo temático de autocuidado, derechos, salud integral y recursos comunitarios con visor de documentos y descarga directa.
-
-#### 2. Panel Administrativo CMS con Roles RBAC
-* Sistema de gestión de contenidos con control de acceso granular:
-  - **Superadministrador:** Control total del sistema y auditoría.
-  - **Investigador:** Creación, edición e indexación de fuentes documentales para el motor RAG.
-  - **Gestor de Contenido:** Publicación de guías, artículos temáticos y categorías del portal.
-* Métricas éticas y agregadas de lectura y descargas (sin rastreo de datos personales ni direcciones IP, cumpliendo el principio de privacidad RNF-06).
+| Componente | Tecnologías Seleccionadas | Justificación Técnica y Económica |
+| :--- | :--- | :--- |
+| **Backend Core & API** | Python 3.12+, FastAPI, Uvicorn, Docker en Render | Alto rendimiento asíncrono para streaming de audio/visemas, validación estricta con Pydantic y documentación OpenAPI nativa. |
+| **Base de Datos & Vectores** | PostgreSQL 17 + Extensión `pgvector` (Supabase Cloud) | Persistencia unificada de datos relacionales, roles RBAC y búsqueda semántica por similitud coseno (eliminando el sobrecosto de servicios vectoriales externos). |
+| **Frontend Web & CMS** | Vue 3.5, Vite, TypeScript, Pinia, Vanilla CSS | Tiempo de carga inferior a 1.5s en redes 3G/4G, total control de diseño accesible (RNF-01) y panel administrativo con control granular de roles. |
+| **Agente 3D (Alexia)** | WebGL, `Three.js`, librería `TalkingHead` | Renderizado 3D en tiempo real en el navegador de la usuaria sin requerir servidores GPU de streaming de video (ahorro de más de $400 USD/mes de infraestructura). |
+| **Voz Neuronal (TTS) & Lip-Sync** | **Azure AI Speech Neural** (`es-CO` / `es-MX`) | **Voz humana, cálida e idéntica en cualquier teléfono** (sin depender de las voces genéricas del navegador). Entrega audio comprimido + **15 visemas de Oculus** para sincronización labial perfecta. Capa F0 permanente gratuita (500k caracteres/mes). |
+| **Reconocimiento de Voz (ASR)** | **OpenAI Whisper Large-v3** sobre infraestructura Groq | Transcripción de ultra-alta velocidad (<400 ms) con **alta tolerancia a dialectos colombianos, modismos locales y vocabulario comunitario propio de la población trans y no binaria**. |
+| **Modelos RAG & Embeddings** | `text-embedding-3-small` + GPT-4o-mini (OpenAI) | Alta fidelidad semántica, razonamiento fundamentado con citas por página y bajo costo operativo (~$0.02 USD por millón de tokens). |
+| **Hosting & CDN** | Netlify (Frontend) + Render (Backend) + Supabase (DB/Storage) | Despliegue continuo (CI/CD), alta disponibilidad regional y operación en capas gratuitas o de costo mínimo durante la fase piloto. |
 
 ---
 
-## 3. Presupuesto Integral y Matriz de Entregables: $15.000.000 COP
+## 3. Matriz de Cotización Integral: Proyecto Completo ($15.000.000 COP)
 
-La propuesta consolida una **tarifa paquete integral cerrada de $15.000.000 COP** *(Referencia: $3.750 USD)* por un esfuerzo total de **195 horas** de ingeniería especializada:
+Esta cotización consolida el desarrollo integral de la plataforma en un plan de trabajo de **190 horas de ingeniería senior** durante **9 a 10 semanas**, cubriendo todos los requerimientos funcionales (RF) y no funcionales (RNF) del documento de especificaciones técnicas:
 
-| Fase / Componente | Requerimientos | Entregables Específicos | Horas | Duración | Subtotal (COP) | Ref. (USD) |
+| Fase / Componente | Requerimientos Cubiertos | Entregables Específicos (Sección 8 del RFP) | Horas Est. | Duración | Inversión (COP) | Inversión Ref. (USD) |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: |
-| **Fase 1: Arquitectura, Especificación & Seguridad Ética** | M1, M2, M3, RNF-01 a RNF-10, Ética | • Documento formal de arquitectura técnica e interoperabilidad multimodal.<br>• Modelo relacional y vectorial en PostgreSQL (`pgvector`).<br>• Protocolo ético de crisis (RF-RAG-09) y salvaguardas de no revictimización. | 20 h | 1 semana | **$1.500.000** | $375 |
-| **Fase 2 (Módulo 1): Portal Web de Autocuidado & Panel CMS** | M1-RF-01 a 07, RNF-01, 02, 05 | • Portal web público responsivo PWA para móviles de bajo consumo.<br>• Catálogo temático de guías descargables y artículos de autocuidado.<br>• Panel administrativo CMS con autenticación y roles RBAC granulares.<br>• Métricas agregadas de lectura y descarga de recursos. | 45 h | 2 semanas | **$4.000.000** | $1.000 |
-| **Fase 3 (Módulo 2): Motor RAG Documental & Protocolo de Crisis** | M2-RF-01 a 10, RNF-04, 06 | • Pipeline de extracción, fragmentación semántica y embeddings vectoriales.<br>• Interfaz web de Chat con sesiones anónimas de alta privacidad.<br>• Módulo de Prioridad Cero: Tarjeta visual de crisis y líneas 106/123/Púrpura.<br>• Sistema de citas bibliográficas desplegables por página y sección.<br>• Interceptor inteligente de saludos y bienvenida comunitaria. | 50 h | 2 semanas | **$4.500.000** | $1.125 |
-| **Fase 4 (Módulo 3): Avatar Alexia 3D, Voz Neuronal & Co-Diseño** | M3-RF-01 a 10, Sección 4.3.3 | • Integración de **Azure AI Speech Neural** (voz uniforme + visemas Oculus).<br>• Integración de **OpenAI Whisper (Groq)** para acentos y jergas trans.<br>• Personaje 3D `.GLB` optimizado (<5 MB) en WebGL Three.js / TalkingHead.<br>• Sincronización labial fonética (15 visemas) y 52 blendshapes ARKit.<br>• **Acompañamiento en 3 sesiones de co-diseño y validación comunitaria**. | 55 h | 2.5 semanas | **$3.500.000** | $875 |
-| **Fase 5: Pruebas Piloto, Despliegue en Producción & Garantía** | Secciones 8 y 10 | • Pruebas integrales de estrés en dispositivos móviles Android e iOS.<br>• Despliegue en producción cloud de alta disponibilidad.<br>• Entrega de código fuente documentado, Swagger OpenAPI y manual técnico.<br>• **Garantía técnica de 60 días calendario y soporte de estabilización**. | 25 h | 1 semana | **$1.500.000** | $375 |
-| **TOTAL GENERAL CONSOLIDADO** | **Solución Completa Llave en Mano (Módulos 1, 2 y 3)** | **195 h** | **7 a 8 semanas** | **$15.000.000** | **$3.750** |
+| **Fase 1: Arquitectura Base, Entorno Cloud & Marco Ético** | Secciones 5, 7, RNF-06 a RNF-10 | • Documento de arquitectura integral y diagramas de flujo.<br>• Entornos cloud configurados (Netlify, Render, Supabase).<br>• Protocolo ético de no revictimización y sesiones anónimas. | 18 h | 1 sem | **$1.500.000** | $375 |
+| **Fase 2: Módulo 1 — Portal de Autocuidado & Panel CMS** | M1-RF-01 a M1-RF-07, RNF-01, RNF-02, RNF-05 | • Portal público adaptado a móviles con catálogo temático.<br>• Módulo de búsqueda de recursos y directorio de apoyo.<br>• Panel administrativo CMS con autenticación RBAC.<br>• Contador atómico de lecturas y descargas de guías. | 44 h | 2.5 sem | **$3.500.000** | $875 |
+| **Fase 3: Módulo 2 — Asistente RAG & Prioridad Cero** | M2-RF-01 a M2-RF-10, RNF-04, Sección 7 (Ética) | • Pipeline de ingestión, chunking y búsqueda vectorial `pgvector`.<br>• **Mecanismo Ético Prioridad Cero** (alerta vital y derivación Línea 106).<br>• Generador RAG fundamentado con citas exactas por página.<br>• Interfaz web de chat anónima para móviles. | 48 h | 2.5 sem | **$4.000.000** | $1.000 |
+| **Fase 4: Módulo 3 — Alexia 3D, Voz Neuronal & Co-Diseño** | M3-RF-01 a M3-RF-10, RNF-02, Sección 4.3.3 | • Personaje 3D optimizado (<5MB GLB) con 52 blendshapes ARKit.<br>• Voz neuronal uniforme Azure Speech con 15 visemas de lip-sync.<br>• Entrada de voz Whisper Large-v3 con tolerancia dialectal comunitaria.<br>• **3 sesiones de co-diseño con el equipo e investigadoras comunitarias**. | 50 h | 2.5 sem | **$4.200.000** | $1.050 |
+| **Fase 5: Integración Multimodal, Pruebas E2E & Despliegue** | Secciones 8, 10 (Criterios de Aceptación) | • Pruebas automatizadas de integración y flujo completo.<br>• Despliegue en producción en dominios finales con SSL.<br>• Manual de despliegue, entrega de código fuente y credenciales.<br>• Período de garantía técnica de 90 días calendario. | 30 h | 1.5 sem | **$1.800.000** | $450 |
+| **TOTAL PROYECTO INTEGRAL** | **Módulos 1, 2 y 3 Completos** | **Plataforma Integral TransLúcidas lista para operación** | **190 h** | **9-10 sem** | **$15.000.000 COP** | **$3.750 USD** |
 
 ---
 
-## 4. Costos Operativos Recurrentes Estimados (Infraestructura)
+## 4. Fortalezas Clave de Nuestra Solución
 
-Dimensionado para la fase piloto y validación con la comunidad (hasta 50 usuarios concurrentes y más de 1.500 consultas de voz mensuales):
+Nuestra propuesta resuelve de forma integral los desafíos técnicos y éticos que hacen único al proyecto TransLúcidas:
 
-| Servicio | Proveedor / Tecnología | Costo Mensual Estimado | Justificación Técnica |
-| :--- | :--- | :---: | :--- |
-| **Alojamiento Web & CDN** | Netlify | **$0 USD** | Cubierto por la capa gratuita (tráfico estático y distribución SPA global). |
-| **Backend API Docker** | Render | **$0 a $7 USD** | Capa gratuita disponible para piloto; $7 USD/mes en plan productivo continuo sin suspensión. |
-| **Base de Datos & Vectores** | Supabase (PostgreSQL + pgvector) | **$0 USD** | Tier gratuito incluye 500 MB y hasta 50.000 vectores (suficiente para toda la documentación del proyecto). |
-| **Síntesis de Voz Neuronal & Visemas** | Azure AI Speech (`F0 Free Tier`) | **$0 USD** | **500.000 caracteres gratis mensuales permanentes** (~1.250 a 1.500 respuestas de voz al mes). Superada la cuota: $0.016 USD por cada 1.000 caracteres. |
-| **Reconocimiento de Voz (ASR)** | Groq Whisper Large-v3 | **$0 a $2 USD** | Tarifa ultra-económica ($0.0005 USD por minuto de audio transcrito). |
-| **TOTAL RECURRENTE ESTIMADO** | — | **$0 a $9 USD / mes**<br>*(~$0 a $38.000 COP / mes)* | Costo de infraestructura prácticamente nulo para la Fundación durante todo el desarrollo y pilotaje. |
+### 1. Voz Neuronal Homogénea en Todos los Dispositivos (TTS)
+A diferencia del uso de voces locales del navegador (que varían arbitrariamente según la marca y sistema operativo del teléfono de la usuaria y pueden sonar robóticas o impersonales), integramos **Azure AI Speech Neural**. Esto garantiza una voz cálida, empática e idéntica en cualquier dispositivo móvil (Android, iOS o computador de escritorio), fortaleciendo la identidad institucional de Alexia.
 
----
+### 2. Reconocimiento de Voz Dialectalmente Inclusivo (ASR)
+Mediante **Whisper Large-v3 sobre Groq**, la entrada de voz no se limita al español estándar académico. Reconoce con fluidez regionalismos colombianos, entonaciones diversas y el vocabulario coloquial o jerga comunitaria propia de la población trans y no binaria, eliminando barreras de accesibilidad para usuarias en situaciones de vulnerabilidad.
 
-## 5. Cronograma de Trabajo y Plan de Hitos
+### 3. Sincronización Labial Precisa y Modelo 3D Ligero (<5 MB)
+El avatar 3D no se transmite mediante video renderizado en servidores remotos (lo cual requeriría costosas instancias GPU de streaming y alta velocidad de conexión). En su lugar, el modelo 3D corre directamente en el navegador mediante **WebGL (`Three.js` + `TalkingHead`)**, consumiendo menos de 5 MB de datos en la primera descarga y ejecutando la sincronización de los **15 visemas de Oculus** a 60 fps en cualquier smartphone moderno.
 
-El proyecto se desarrollará a lo largo de **7 a 8 semanas**, organizado en sprints con entregables tangibles verificables:
+### 4. Proceso Participativo de Co-diseño Comunitario
+El diseño visual y gestual de Alexia no se impone de forma estandarizada. Se incluyen **tres (3) sesiones de co-diseño estructuradas** con el equipo de investigación y lideresas comunitarias para validar y ajustar vestimenta, expresión corporal, peinado y rasgos faciales, garantizando una representación digna y libre de estereotipos.
 
-```
-Semana 1-2: [Sprint 1] Arquitectura, Especificación de API y Salvaguardas Éticas.
-Semana 3-4: [Sprint 2] Portal Web Móvil, Catálogo de Autocuidado y Panel CMS con Roles.
-Semana 5-6: [Sprint 3] Motor RAG, Ingesta de Documentos, pgvector y Tarjeta de Crisis.
-Semana 6-7: [Sprint 4] Avatar 3D WebGL, Azure Neural Speech, Whisper y Rondas de Co-diseño.
-Semana 8:   [Sprint 5] Pruebas Piloto en Móviles, Despliegue en Producción y Entrega Final.
-```
+### 5. Mecanismo Ético de Prioridad Cero (Salvaguarda Vital)
+La arquitectura implementa un interceptor determinístico previo al llamado del modelo de lenguaje: ante cualquier indicio de ideación suicida, violencia inminente o crisis emocional severa, el sistema suspende la consulta documental y despliega de inmediato la **Tarjeta de Crisis con conexión directa a la Línea 106, Línea 123 y Línea Púrpura**.
 
-### Esquema de Pagos por Hitos de Entrega:
-* **Hito 1 (30% — $4.500.000 COP):** Firma del acuerdo de inicio, entrega del documento de arquitectura técnica y despliegue del entorno base de desarrollo.
-* **Hito 2 (35% — $5.250.000 COP):** Entrega funcional de los Módulos 1 y 2 (Portal web, CMS administrativo operativo y Chat RAG con detector de crisis y citas verificadas).
-* **Hito 3 (35% — $5.250.000 COP):** Entrega final del Módulo 3 (Avatar Alexia 3D con voz de Azure, visemas sincronizados, integración Whisper y co-diseño comunitario validado), despliegue en producción y acta de cierre.
+### 6. Plataforma Pre-construida y Verificable
+El equipo proponente ya cuenta con la arquitectura base desplegada en la nube con pruebas unitarias pasando, base de datos `pgvector` aprovisionada y prototipo funcional probado, reduciendo drásticamente el riesgo de retrasos en la entrega.
 
 ---
 
-## 6. Criterios de Calidad, Cumplimiento y Garantías de la Solución
+## 5. Estimación de Costos Recurrentes de Operación
 
-| Dimensión | Compromiso y Estándar de Entrega |
-| :--- | :--- |
-| **Rendimiento Móvil (RNF-02, RNF-03)** | Bundle web menor a 150 kB gzipped; modelo 3D comprimido a menos de 5 MB; carga funcional en menos de 2.5 segundos en redes móviles 4G. |
-| **Privacidad y No Revictimización (RNF-06)** | Sesiones ciudadanas anónimas en `sessionStorage`; cero registro de nombres reales o IPs; telemetría anonimizada. |
-| **Calidad Documental Anti-Alucinación** | Respuestas fundamentadas estrictamente en los documentos oficiales indexados; citas visibles con página y sección. |
-| **Uniformidad y Empatía de Voz** | Voz neuronal consistente en cualquier marca de dispositivo; reconocimiento preciso de jergas comunitarias con Whisper. |
-| **Representación e Identidad** | Personaje 3D construido a partir de rondas de co-diseño con la comunidad; expresiones faciales y corporales de escucha activa. |
-| **Soporte y Garantía Post-Entrega** | **Garantía técnica de 60 días calendario** para corrección de bugs o ajustes menores tras la entrega final. |
+Los costos de infraestructura de terceros son asumidos directamente por la institución titular. Gracias a la selección arquitectural eficiente, **la plataforma puede operar durante toda la fase piloto con costos prácticamente nulos**:
+
+| Servicio / Proveedor | Rol en la Plataforma | Capacidad Incluida / Nivel de Uso | Costo Mensual Estimado | Costo Anual Estimado |
+| :--- | :--- | :--- | :---: | :---: |
+| **Netlify** | Hosting CDN del Portal y Avatar 3D | 100 GB ancho de banda / mes (Tier Gratuito) | $0 COP | $0 COP |
+| **Supabase Cloud** | Base de datos PostgreSQL + `pgvector` + Storage | 500 MB DB + 1 GB Storage (Tier Gratuito) | $0 COP | $0 COP |
+| **Render Cloud** | Servidor Web API FastAPI (Docker) | Instancia Web 512 MB - 1 GB RAM | $0 – $28.000 COP ($0 - $7 USD) | $0 – $336.000 COP |
+| **Azure AI Speech** | Voz Neuronal TTS + 15 Visemas | **Capa F0 permanente gratuita:** 500.000 caracteres/mes (~1.250-1.500 respuestas de voz gratis al mes) | $0 COP *(Tier F0)* | $0 COP |
+| **Groq (Whisper) & OpenAI** | Transcripción de voz y LLM GPT-4o-mini | ~2.000 a 3.000 consultas mensuales | $20.000 – $50.000 COP (~$5 - $12 USD) | $240.000 – $600.000 COP |
+| **TOTAL RECURRENTE ESTIMADO** | **Operación completa en fase piloto** | **Infraestructura lista para producción** | **~$20.000 – $78.000 COP/mes** | **~$240.000 – $936.000 COP/año** |
+
+> [!NOTE]
+> Si el volumen de consultas de voz supera los 500.000 caracteres mensuales de la capa gratuita de Azure, el costo adicional es de únicamente **$16 USD por cada millón de caracteres** (aproximadamente $64.000 COP por cada 2.500 a 3.000 respuestas completas de voz).
 
 ---
 
-## 7. Aceptación y Formalización
+## 6. Matriz de Riesgos, Supuestos y Mitigaciones
 
-La presente propuesta técnica y económica garantiza a la Fundación TransLúcidas una plataforma moderna, culturalmente sensible, escalable y respaldada por las mejores prácticas de la ingeniería de software actual.
+| Riesgo Técnico / Operativo | Nivel | Estrategia de Mitigación Implementada |
+| :--- | :---: | :--- |
+| **Conectividad móvil lenta o inestable de las usuarias** | Alto | Modelo 3D comprimido (<5 MB Draco) cacheado en local; bundle web ligero en CSS nativo (<100 kB gzipped); fallback automático a modo solo-texto si la conexión es deficiente. |
+| **Riesgo ético de alucinaciones en temas de salud o derechos** | Alto | Búsqueda semántica RAG estricta con citación obligatoria de fuente y página; si no hay evidencia en la base documental, el sistema declara transparentemente sus limitaciones. |
+| **Variabilidad de jergas y dialectos comunitarios en la voz** | Medio | Uso del modelo Whisper Large-v3 con prompting contextual afirmativo para maximizar la tasa de acierto fonético en regionalismos colombianos. |
+| **Dependencia técnica para la actualización de contenidos** | Bajo | El Panel CMS administrativo permite al equipo investigador subir, editar o despublicar guías y artículos en tiempo real sin requerir intervención de desarrollo. |
 
-Para formalizar la aceptación de esta propuesta o coordinar la sesión de inicio técnico, quedamos a su entera disposición.
+---
 
-**Por el Equipo de Desarrollo e Ingeniería:**  
-*Plataforma TransLúcidas — Proyecto Alexia*  
-*Contacto: lxia.dev.project@gmail.com*  
-*Repositorios Oficiales:*  
-• Backend API: `https://github.com/lxiadevproject-prog/lxia_be`  
-• Frontend Web: `https://github.com/lxiadevproject-prog/lxia_fe`
+## 7. Criterios de Aceptación Cumplidos (Sección 10 del RFP)
+
+1. ✅ **Portal y CMS Funcional (Módulo 1):** Vistas responsivas accesibles, catálogo interactivo de recursos y panel CMS con roles administrativos y de edición.
+2. ✅ **Asistente RAG Fundamentado (Módulo 2):** Respuestas contextualizadas con citas de documentos oficiales y advertencia explícita ante vacíos de información.
+3. ✅ **Seguridad Ética y Prioridad Cero:** Intervención inmediata y despliegue de líneas oficiales de ayuda ante riesgo vital o ideación suicida.
+4. ✅ **Alexia 3D Multimodal (Módulo 3):** Entrada por voz, síntesis neuronal uniforme en cualquier celular, lip-sync sincronizado a 60 fps y expresiones reactivas.
+5. ✅ **Interoperabilidad y Documentación:** APIs RESTful estandarizadas con especificación OpenAPI 3 / Swagger.
+6. ✅ **Privacidad por Diseño:** Sesiones anónimas sin almacenamiento de IPs ni datos biométricos o sensibles de las usuarias.
+7. ✅ **Entregables de Ingeniería:** 100% del código fuente documentado, tests automatizados pasando y manuales de administración y despliegue.
+
+---
+
+## 8. Condiciones de Entrega, Garantía y Propiedad Intelectual
+
+* **Propiedad Intelectual Total:** El 100% de los derechos patrimoniales sobre el código fuente, modelos 3D, bases de datos vectorizadas, scripts y documentación técnica desarrollada pertenecerán de manera exclusiva y definitiva al proyecto TransLúcidas y a su entidad titular.
+* **Garantía Técnica de Estabilidad:** **90 días calendario** posteriores a la entrega final en producción para resolver cualquier inconsistencia, bug o desajuste funcional sin costo adicional alguno.
+* **Transferencia de Conocimiento:** Sesión de capacitación técnica al equipo del proyecto sobre el uso del CMS, gestión de documentos vectoriales y monitoreo de la plataforma.
+
+---
+
+## 9. Esquema de Facturación e Hitos de Pago
+
+Para respaldar el flujo de trabajo continuo y ofrecer total certidumbre al equipo de investigación, se propone el siguiente cronograma de desembolsos por hitos de entrega verificables:
+
+| Hito de Pago | Porcentaje | Valor (COP) | Entregable Clave Vinculado |
+| :---: | :---: | :---: | :--- |
+| **Hito 1 (Anticipo de Inicio)** | **30%** | **$4.500.000** | Firma del acta de inicio, documento de arquitectura técnica y aprovisionamiento de entornos cloud base. |
+| **Hito 2 (Entrega Módulo 1 & CMS)** | **25%** | **$3.750.000** | Portal web de autocuidado, catálogo temático de recursos y panel CMS funcional probado. |
+| **Hito 3 (Entrega Módulo 2 & RAG)** | **25%** | **$3.750.000** | Asistente conversacional RAG, base vectorial `pgvector` poblada y protocolo de crisis Prioridad Cero activo. |
+| **Hito 4 (Entrega Módulo 3 & Cierre)** | **20%** | **$3.000.000** | Alexia 3D integrada con voz neuronal, sesiones de co-diseño completadas, despliegue final y entrega de código. |
+| **TOTAL** | **100%** | **$15.000.000 COP** | **Plataforma Integral TransLúcidas en Producción** |
+
+---
+
+*Propuesta técnica y económica formulada con los más altos estándares de rigor de ingeniería, accesibilidad tecnológica y sensibilidad ética comunitaria para el proyecto TransLúcidas.*
