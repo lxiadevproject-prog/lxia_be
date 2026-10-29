@@ -1,37 +1,37 @@
 %%{init: {
   'theme': 'base',
   'themeVariables': {
-    'background': '#0A0F1D',
-    'primaryColor': '#111827',
-    'primaryTextColor': '#F9FAFB',
-    'primaryBorderColor': '#38BDF8',
-    'lineColor': '#818CF8',
-    'secondaryColor': '#0F172A',
-    'tertiaryColor': '#1E1B4B',
-    'clusterBkg': '#0F172A',
-    'clusterBorder': '#334155',
-    'defaultLinkColor': '#38BDF8',
-    'fontFamily': 'Inter, system-ui, -apple-system, sans-serif',
+    'background': '#FFFFFF',
+    'primaryColor': '#F8FAFC',
+    'primaryTextColor': '#0F172A',
+    'primaryBorderColor': '#2563EB',
+    'lineColor': '#475569',
+    'secondaryColor': '#EFF6FF',
+    'tertiaryColor': '#F1F5F9',
+    'clusterBkg': '#F8FAFC',
+    'clusterBorder': '#CBD5E1',
+    'defaultLinkColor': '#2563EB',
+    'fontFamily': 'Montserrat, Inter, system-ui, -apple-system, sans-serif',
     'fontSize': '13px'
   }
 }}%%
 flowchart TD
-    %% Estilos Modernos Dark Cyber Pro (Vibrant Neon Glow)
-    classDef clientCard fill:#0C2340,stroke:#00F0FF,stroke-width:2.5px,color:#FFFFFF,rx:10px;
-    classDef m1Card fill:#1E1B4B,stroke:#8B5CF6,stroke-width:2.5px,color:#FFFFFF,rx:10px;
-    classDef m3Card fill:#380424,stroke:#F43F5E,stroke-width:2.5px,color:#FFFFFF,rx:10px;
-    classDef m2Card fill:#063528,stroke:#10B981,stroke-width:2.5px,color:#FFFFFF,rx:10px;
-    classDef orchCard fill:#022C22,stroke:#34D399,stroke-width:2.5px,color:#A7F3D0,rx:10px;
-    classDef crisisCard fill:#450A0A,stroke:#EF4444,stroke-width:2.5px,color:#FECACA,rx:10px;
-    classDef dataCard fill:#082F49,stroke:#38BDF8,stroke-width:2.5px,color:#E0F2FE,rx:10px;
+    %% Estilos Corporativos Ejecutivos (Paleta Formal Google Docs / Enterprise)
+    classDef clientCard fill:#EFF6FF,stroke:#2563EB,stroke-width:1.8px,color:#0F172A,rx:6px;
+    classDef m1Card fill:#FFFFFF,stroke:#3B82F6,stroke-width:1.8px,color:#0F172A,rx:6px;
+    classDef m3Card fill:#FAF5FF,stroke:#7C3AED,stroke-width:1.8px,color:#1E1B4B,rx:6px;
+    classDef m2Card fill:#F0FDF4,stroke:#059669,stroke-width:1.8px,color:#064E3B,rx:6px;
+    classDef orchCard fill:#0F172A,stroke:#2563EB,stroke-width:2.2px,color:#FFFFFF,rx:6px;
+    classDef crisisCard fill:#FEF2F2,stroke:#DC2626,stroke-width:1.8px,color:#991B1B,rx:6px;
+    classDef dataCard fill:#F0F9FF,stroke:#0284C7,stroke-width:1.8px,color:#0C4A6E,rx:6px;
 
     %% 1. USUARIAS Y CANALES MÓVILES (TOP)
     subgraph L1 ["📱 1. USUARIAS Y CANALES MÓVILES (Android / iOS / PWA)"]
         direction LR
-        U["👤 Usuaria Comunitaria"]
-        MIC["🎤 Micrófono Web (Voz)"]
-        UI["✨ Pantalla PWA / WebGL"]
-        SPK["🔊 Parlante / Audífonos"]
+        U["👤 <b>Usuaria Comunitaria</b>"]
+        MIC["🎤 <b>Micrófono Web (Voz)</b>"]
+        UI["✨ <b>Pantalla PWA / WebGL</b>"]
+        SPK["🔊 <b>Parlante / Audífonos</b>"]
         U <--> MIC
         U <--> UI
         U <--> SPK
@@ -43,14 +43,16 @@ flowchart TD
         direction TB
         subgraph M1_BOX ["⚡ Módulo 1: Portal Web de Autocuidado & CMS (Vue 3.5)"]
             direction LR
-            PORTAL["📚 Portal de Autocuidado<br/><i>Guías, Directorio y Recursos</i>"]
-            CMS["⚙️ CMS Administrativo<br/><i>Gestión de Contenidos RBAC</i>"]
-            CHAT_UI["💬 Interfaz Web de Chat PWA<br/><i>Sesión Segura y Anonimizada</i>"]
+            PORTAL["📚 <b>Portal de Autocuidado</b><br/><i>Guías, Directorio y Recursos</i>"]
+            CMS["⚙️ <b>CMS Administrativo</b><br/><i>Gestión de Contenidos RBAC</i>"]
+            CHAT_UI["💬 <b>Interfaz Web Chat PWA</b><br/><i>Sesión Segura y Anonimizada</i>"]
+            PORTAL ~~~ CMS ~~~ CHAT_UI
         end
         subgraph M3_BOX ["🔮 Módulo 3: Avatar Alexia 3D (WebGL / Three.js)"]
             direction LR
-            HEAD["💃 TalkingHead Lip-Sync Engine<br/><i>15 Visemas Oculus + 52 Blendshapes ARKit</i>"]
-            CANVAS["🎭 Canvas WebGL 3D (Three.js)<br/><i>Modelo .GLB optimizado <5MB a 60 fps</i>"]
+            HEAD["💃 <b>TalkingHead Lip-Sync Engine</b><br/><i>15 Visemas Oculus + 52 Blendshapes ARKit</i>"]
+            CANVAS["🎭 <b>Canvas WebGL 3D (Three.js)</b><br/><i>Modelo .GLB optimizado <5MB a 60 fps</i>"]
+            HEAD ==>|Renderizado Facial en Vivo| CANVAS
         end
     end
     class PORTAL,CMS,CHAT_UI m1Card;
@@ -59,20 +61,25 @@ flowchart TD
     %% 3. CEREBRO BACKEND DJANGO REST & IA NEURONAL
     subgraph L3 ["🧠 3. CEREBRO BACKEND DJANGO REST & SERVICIOS NEURONALES (Render Cloud)"]
         direction TB
-        ORCH["⚡ Orquestador Conversacional Alexia<br/><i>Gestión de Sesión, Prompt Afirmativo & RAG</i>"]
+        ORCH["⚡ <b>Orquestador Conversacional Alexia (Django REST Framework)</b><br/><i>Gestión de Sesión, Prompt Afirmativo & RAG Vectorial</i>"]
 
         subgraph ETHICS_ROW ["🛡️ Mecanismo Ético Prioridad Cero"]
             direction LR
-            SAFETY["🚨 Detector Heurístico de Crisis<br/><i>Reglas Vitales de Alerta Inmediata</i>"]
-            LINE106["🆘 Protocolo de Emergencia<br/><i>Canalización prioritaria Línea 106</i>"]
+            SAFETY["🚨 <b>Detector Heurístico de Crisis</b><br/><i>Reglas Vitales de Alerta Inmediata</i>"]
+            LINE106["🆘 <b>Protocolo de Emergencia</b><br/><i>Canalización prioritaria Línea 106</i>"]
+            SAFETY -->|Crisis Detectada| LINE106
         end
 
-        subgraph AI_ROW ["🤖 Servicios de Inteligencia Neuronal"]
+        subgraph AI_ROW ["🤖 Pipeline de Inteligencia Neuronal"]
             direction LR
-            WHISPER["👂 Whisper Large-v3 (Groq)<br/><i>ASR <400ms tolerante a jergas</i>"]
-            AZURE["🗣️ Azure AI Speech Neural<br/><i>Voz uniforme + 15 Visemas Oculus</i>"]
-            LLM["✨ OpenAI GPT-4o-mini<br/><i>Respuesta empática + Emoción</i>"]
+            WHISPER["👂 <b>Whisper Large-v3 (Groq)</b><br/><i>ASR <400ms tolerante a jergas</i>"]
+            LLM["✨ <b>OpenAI GPT-4o-mini</b><br/><i>Respuesta empática + Contexto RAG</i>"]
+            AZURE["🗣️ <b>Azure AI Speech Neural</b><br/><i>Voz uniforme + 15 Visemas Oculus</i>"]
+            WHISPER -->|Texto| LLM
+            LLM -->|Síntesis| AZURE
         end
+        
+        SAFETY ~~~ WHISPER
     end
     class ORCH orchCard;
     class WHISPER,AZURE,LLM m2Card;
@@ -81,18 +88,18 @@ flowchart TD
     %% 4. CAPA DE DATOS Y STORAGE (BOTTOM)
     subgraph L4 ["💾 4. INFRAESTRUCTURA DE DATOS & CLOUD STORAGE (Supabase Cloud)"]
         direction LR
-        PGVECTOR[("🗄️ PostgreSQL 17 + pgvector<br/><i>Embeddings Vectoriales & Guías</i>")]
-        STORAGE["📦 Supabase Storage Bucket<br/><i>Modelo 3D GLB, Texturas & Guías PDF</i>"]
-        AUDIT[("🔒 Auditoría Anonimizada<br/><i>Métricas de uso éticas sin datos personales</i>")]
+        PGVECTOR[("🗄️ <b>PostgreSQL 17 + pgvector</b><br/><i>Embeddings Vectoriales & Guías</i>")]
+        STORAGE["📦 <b>Supabase Storage Bucket</b><br/><i>Modelo 3D GLB, Texturas & Guías PDF</i>"]
+        AUDIT[("🔒 <b>Auditoría Anonimizada</b><br/><i>Métricas éticas sin datos personales</i>")]
+        PGVECTOR ~~~ STORAGE ~~~ AUDIT
     end
     class PGVECTOR,STORAGE,AUDIT dataCard;
 
-    %% CONEXIONES DE CAPA A CAPA (Columna Vertebral Perfecta)
+    %% CONEXIONES DE CAPA A CAPA (Flujo Jerárquico Top-to-Bottom)
     MIC ==>|Audio de Voz WebM| CHAT_UI
     UI ==>|Consultas de Texto| CHAT_UI
     PORTAL -.->|Consulta Recursos| CMS
     CHAT_UI ==>|Sincronización Audio & Visemas| HEAD
-    HEAD ==>|Renderizado Facial en Vivo| CANVAS
 
     %% Capa 2 a Capa 3
     CHAT_UI ==>|Petición API HTTPS /chat| ORCH
@@ -100,12 +107,9 @@ flowchart TD
 
     %% Enrutamiento Interno en Backend
     ORCH -->|1. Evaluación de Seguridad Vital| SAFETY
-    SAFETY -->|Crisis Detectada| LINE106
     ORCH -->|2. Transcripción ASR| WHISPER
-    ORCH -->|3. Generación Aumentada| LLM
-    ORCH -->|4. Síntesis Neuronal & Visemas| AZURE
 
     %% Capa 3 a Capa 4
-    ORCH ==>|Búsqueda Semántica & Almacenamiento| PGVECTOR
+    ORCH ==>|Búsqueda Semántica & RAG| PGVECTOR
     ORCH ==>|Gestión de Archivos & Assets 3D| STORAGE
     ORCH ==>|Registro Ético Anonimizado| AUDIT
