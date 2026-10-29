@@ -1,0 +1,130 @@
+@startuml
+left to right direction
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName "Inter, system-ui, -apple-system, sans-serif"
+skinparam defaultFontSize 12
+skinparam roundCorner 8
+skinparam shadowing false
+skinparam packageStyle rectangle
+
+' Colores Corporativos
+skinparam actor {
+    BackgroundColor #EFF6FF
+    BorderColor #2563EB
+    BorderThickness 1.8
+    FontColor #0F172A
+    FontSize 12
+    FontStyle bold
+}
+
+skinparam usecase {
+    BackgroundColor #FFFFFF
+    BorderColor #2563EB
+    BorderThickness 1.5
+    FontColor #0F172A
+    FontSize 12
+    ArrowColor #334155
+    ArrowFontColor #475569
+    ArrowFontSize 11
+}
+
+skinparam package {
+    BackgroundColor #F8FAFC
+    BorderColor #94A3B8
+    BorderThickness 1.5
+    FontColor #0F172A
+    FontStyle bold
+    FontSize 13
+}
+
+skinparam rectangle {
+    BackgroundColor #FAFCFF
+    BorderColor #475569
+    BorderThickness 2
+    FontColor #0F172A
+    FontStyle bold
+    FontSize 14
+}
+
+' ===================================================
+' ACTORES HUMANOS (Izquierda)
+' ===================================================
+actor "👤 Usuaria Comunitaria\n(Mujer Trans / Usuaria Web)" as user
+actor "⚙️ Administradora CMS\n(Equipo TransLúcidas)" as admin
+
+' ===================================================
+' SISTEMA TRANSLÚCIDAS
+' ===================================================
+rectangle "Plataforma TransLúcidas" {
+
+    ' --- MÓDULO 1 ---
+    package "Módulo 1: Portal de Autocuidado & CMS (Vue 3.5)" as M1 {
+        usecase "UC01: Consultar Guías de Salud y Autocuidado" as UC01
+        usecase "UC02: Explorar Directorio de Rutas de Atención" as UC02
+        usecase "UC03: Descargar Recursos y Material Educativo" as UC03
+        usecase "UC04: Iniciar Sesión Administrativa (RBAC)" as UC04
+        usecase "UC05: Gestionar Guías y Directorio (CRUD)" as UC05
+        usecase "UC06: Sincronizar Documentos en Base Vectorial" as UC06
+        
+        UC05 ..> UC06 : <<include>>
+    }
+
+    ' --- MÓDULO 2 ---
+    package "Módulo 2: Backend Django REST & Orquestador Ético" as M2 {
+        usecase "UC07: Iniciar Sesión Efímera y Anónima" as UC07
+        usecase "UC08: Enviar Consulta por Voz (Audio WebM)" as UC08
+        usecase "UC09: Enviar Consulta por Texto" as UC09
+        usecase "UC10: Recuperar Respuestas con RAG Vectorial" as UC10
+        usecase "UC11: Detectar Situación de Crisis (Prioridad Cero)" as UC11
+        usecase "UC12: Desplegar Tarjeta de Asistencia Urgente" as UC12
+        usecase "UC13: Consultar Métricas Éticas Agregadas" as UC13
+        
+        UC08 ..> UC10 : <<include>>
+        UC09 ..> UC10 : <<include>>
+        UC10 ..> UC11 : <<extend>>\n(Alerta Vital)
+        UC11 ..> UC12 : <<include>>
+    }
+
+    ' --- MÓDULO 3 ---
+    package "Módulo 3: Agente Virtual Alexia 3D (WebGL / Three.js)" as M3 {
+        usecase "UC14: Interactuar con Avatar 3D en Tiempo Real" as UC14
+        usecase "UC15: Sincronizar Labios (15 Visemas Oculus)" as UC15
+        usecase "UC16: Reproducir Voz Neuronal Uniforme (Azure F0)" as UC16
+        usecase "UC17: Alternar a Modo Solo Texto (Baja Conexión)" as UC17
+        
+        UC14 ..> UC15 : <<include>>
+        UC14 ..> UC16 : <<include>>
+        UC14 ..> UC17 : <<extend>>
+    }
+}
+
+' ===================================================
+' SISTEMAS EXTERNOS (Derecha)
+' ===================================================
+actor "🤖 Servicios de IA Neuronal\n(Groq Whisper / OpenAI / Azure)" as ai_sys << Cloud Service >>
+actor "🚨 Red de Emergencia (Línea 106 / 123)\n(Servicios de Salud Distrital)" as crisis_sys << External System >>
+
+' ===================================================
+' RELACIONES
+' ===================================================
+' Usuaria -> Casos de Uso
+user --> UC01
+user --> UC02
+user --> UC03
+user --> UC07
+user --> UC08
+user --> UC09
+user --> UC14
+
+' Administradora -> Casos de Uso
+admin --> UC04
+admin --> UC05
+admin --> UC13
+
+' Casos de Uso -> Servicios Externos
+UC08 ..> ai_sys : <<transcribe>>\nWhisper Groq
+UC10 ..> ai_sys : <<inferencia>>\nGPT-4o-mini
+UC16 ..> ai_sys : <<síntesis>>\nAzure Speech F0
+
+UC12 --> crisis_sys : <<alerta>>\nMarcación Directa
+@enduml
